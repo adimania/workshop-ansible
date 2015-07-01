@@ -1,0 +1,47 @@
+Ansible Workshop @ PyCon 2015
+=============================
+
+== Description of the workshop ==
+Ansible is an IT automation tool that can be used to configure, deploy and orchestrate many different Infrastructure based tasks. Ansible can be used for system configuration, software deployment, application or infrastructure orchestration, more importantly it is agent less and no master/slave configuration required for it. It uses yml to write playbook which is readable and easy to manageable, did I not mention it's comes with batteries included.
+
+This workshop aims to hands-on upon the following topics:
+
+* Ansible Basics
+* Inventory
+* Modules
+* Playbook
+* Variable
+* Playbook template
+* Condition Handling
+* Adhoc run
+* System Configuration
+* Application Orchestration
+* Cloud Infra management (Docker, openstack, AWS)
+* Creating custom modules
+* Ansible Vault
+
+=== Ansible Basics ===
+Topics covered:
+
+* What is Ansible?
+* Why do we need it?
+* What are the advantages of using it?
+* How to configure Ansible?
+* How to run adhoc commands?
+
+=== Ansible Inventory ===
+Topics covered:
+
+* What is inventory file?
+* What do we create an inventory file?
+* How do we define groups of hosts for running Ansible?
+* Explain the Ansible inventory file below
+----
+[www]
+web1.myorg.com
+web2.myorg.com
+[db]
+db1.myorg.com
+[mail]
+db1.myorg.com
+----
