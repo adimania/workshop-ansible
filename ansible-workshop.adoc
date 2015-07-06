@@ -11,7 +11,6 @@ This workshop aims to hands-on upon the following topics:
 * Modules
 * Playbook
 * Variable
-* Playbook template
 * Condition Handling
 * Adhoc run
 * System Configuration
@@ -45,3 +44,94 @@ db1.myorg.com
 [mail]
 db1.myorg.com
 ----
+
+=== Ansible Modules ===
+Topics covered:
+
+* What is ansible module library?
+* How to use module for ansible ad-hoc commands?
+* How to use module to ansible playbooks?
+* How to get document of a module in ansible?
+---
+[Ad-hoc use case]
+ansible webservers -m service -a "name=httpd state=started"
+
+[Playbook use case]
+- name: reboot the servers
+  command: /sbin/reboot -t now
+
+[Module document]
+ansible-doc yum
+---
+
+=== Ansible Playbooks ===
+Topics covered:
+
+* Why should playbook instead of ad-hoc commands?
+* How to write a playbook?
+* What is User/Hosts and roles in playbook?
+* How to use tag in playbook?
+* How to execute a playbook?
+---
+- hosts: webservers
+  vars:
+    http_port: 80
+    max_clients: 200
+    remote_user: root
+    tasks:
+        - name: ensure apache is at the latest version
+          yum:
+            pkg: httpd
+            state: latest
+---
+
+=== Variables ===
+Topics covered:
+
+* What makes a valid variable name?
+* How to define variable in playbook?
+* How to define variable in inventory?
+* What are registered variables?
+* How to access complex variable data?
+* Magic variables to get data about other hosts.
+* How to pass a variable from command line?
+* Variable precedence.
+---
+- hosts: webservers
+  vars:
+      http_port: 80
+
+My amp goes to {{ variable_in_jinja_template }}
+
+ansible hostname -m setup
+
+ansible-playbook release.yml --extra-vars "version=1.23.45 other_variable=foo"
+---
+
+=== Condition Handling ===
+Topics covered:
+
+* How to handle different condition in ansible playbook?
+* How to use register variable to apply a condition?
+* How to apply condition for a specific role?
+---
+- include: tasks/sometasks.yml
+  when: "'reticulating splines' in output"
+
+tasks:
+    - command: echo {{ item }}
+      with_items: [ 0, 2, 4, 6, 8, 10 ]
+      when: item > 5
+---
+
+=== Ad-hoc Run ===
+Topics covered:
+
+* Why would you use ad-hoc tasks versus playbooks?
+* Parallelism and Shell Commands using ansible ad-hoc.
+* Usecase of ad-hoc commands. like file-transfer, managing services etc.
+---
+ansible webservers -m service -a "name=httpd state=restarted"
+ansible webservers -m git -a "repo=git://foo.example.org/repo.git dest=/srv/myapp version=HEAD"
+ansible all -m user -a "name=foo state=absent"
+---
