@@ -52,7 +52,7 @@ Topics covered:
 * How to use module for ansible ad-hoc commands?
 * How to use module to ansible playbooks?
 * How to get document of a module in ansible?
----
+----
 [Ad-hoc use case]
 ansible webservers -m service -a "name=httpd state=started"
 
@@ -62,7 +62,7 @@ ansible webservers -m service -a "name=httpd state=started"
 
 [Module document]
 ansible-doc yum
----
+----
 
 === Ansible Playbooks ===
 Topics covered:
