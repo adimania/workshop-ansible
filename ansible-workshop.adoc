@@ -72,7 +72,7 @@ Topics covered:
 * What is User/Hosts and roles in playbook?
 * How to use tag in playbook?
 * How to execute a playbook?
----
+----
 - hosts: webservers
   vars:
     http_port: 80
@@ -83,7 +83,7 @@ Topics covered:
           yum:
             pkg: httpd
             state: latest
----
+----
 
 === Variables ===
 Topics covered:
@@ -96,7 +96,7 @@ Topics covered:
 * Magic variables to get data about other hosts.
 * How to pass a variable from command line?
 * Variable precedence.
----
+----
 - hosts: webservers
   vars:
       http_port: 80
@@ -106,7 +106,7 @@ My amp goes to {{ variable_in_jinja_template }}
 ansible hostname -m setup
 
 ansible-playbook release.yml --extra-vars "version=1.23.45 other_variable=foo"
----
+----
 
 === Condition Handling ===
 Topics covered:
@@ -114,7 +114,7 @@ Topics covered:
 * How to handle different condition in ansible playbook?
 * How to use register variable to apply a condition?
 * How to apply condition for a specific role?
----
+----
 - include: tasks/sometasks.yml
   when: "'reticulating splines' in output"
 
@@ -122,7 +122,7 @@ tasks:
     - command: echo {{ item }}
       with_items: [ 0, 2, 4, 6, 8, 10 ]
       when: item > 5
----
+----
 
 === Ad-hoc Run ===
 Topics covered:
@@ -130,8 +130,8 @@ Topics covered:
 * Why would you use ad-hoc tasks versus playbooks?
 * Parallelism and Shell Commands using ansible ad-hoc.
 * Usecase of ad-hoc commands. like file-transfer, managing services etc.
----
+----
 ansible webservers -m service -a "name=httpd state=restarted"
 ansible webservers -m git -a "repo=git://foo.example.org/repo.git dest=/srv/myapp version=HEAD"
 ansible all -m user -a "name=foo state=absent"
----
+----
