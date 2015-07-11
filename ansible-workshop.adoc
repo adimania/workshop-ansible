@@ -9,7 +9,7 @@ This workshop aims to hands-on upon the following topics:
 * Ansible Basics
 * Inventory
 * Modules
-* Playbook
+* Playbook 
 * Variable
 * Condition Handling
 * Adhoc run
@@ -135,3 +135,10 @@ ansible webservers -m service -a "name=httpd state=restarted"
 ansible webservers -m git -a "repo=git://foo.example.org/repo.git dest=/srv/myapp version=HEAD"
 ansible all -m user -a "name=foo state=absent"
 ----
+
+=== Ansible Vault ===
+Topics Covered:
+
+* How to create and edit encryted files?
+* How and why to rekey encrypted file?
+* Running a plybook with Ansible vault
