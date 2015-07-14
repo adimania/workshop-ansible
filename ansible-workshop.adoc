@@ -9,7 +9,7 @@ This workshop aims to hands-on upon the following topics:
 * Ansible Basics
 * Inventory
 * Modules
-* Playbook 
+* Playbook
 * Variable
 * Condition Handling
 * Adhoc run
@@ -142,3 +142,27 @@ Topics Covered:
 * How to create and edit encryted files?
 * How and why to rekey encrypted file?
 * Running a plybook with Ansible vault
+
+=== System Configuration ===
+Topics covered:
+
+* Overview about sytem modules provide by ansible.
+* How to make sure system configuration always sane.
+* Firewalld, SELinux configuration for a target server.
+----
+- selinux: policy=targeted state=enforcing
+----
+
+=== Application Orchestration ===
+Topics covered:
+
+* Delegation and rolling update
+* Local Actions
+----
+- name: test play
+  hosts: websevers
+  serial: "30%"
+
+- hosts: 127.0.0.1
+  connection: local
+----
