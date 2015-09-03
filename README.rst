@@ -28,3 +28,6 @@ To:
 ::
 
     a2x -fpdf -dbook --fop --no-xmllint -v <asciidoc file>
+
+
+Read it `here <http://workshop-ansible.readthedocs.org/en/latest>`_.
