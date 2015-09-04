@@ -1,0 +1,7 @@
+---
+- hosts: 127.0.0.1
+  vars:
+      greeting: "Welcome to pycon"
+  tasks:
+      - name: Greet to Everyone
+        command: echo {greeting}
