@@ -6,6 +6,7 @@ Playbooks are a description of policies that you want to apply to your systems. 
 Example:
 
 .. code-block:: guess
+
    - name: install nginx
      yum: pkg=nginx state=installed
 
