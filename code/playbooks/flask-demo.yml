@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  sudo: yes
+
+  tasks:
+    - name: install nginx
+      yum: pkg=nginx state=installed
+
+    - name: serve nginx config
+      copy: src=../files/flask.conf dest=/etc/nginx/conf.d/
+      notify:
+      - restart nginx
+
+    - name: install pip
+      yum: name=python-pip state=installed
+
+    - name: install flask
+      pip: name=flask
+
+    - name: serve flask app systemd unit file
+      copy: src=../files/flask-demo.service dest=/etc/systemd/system/
+
+    - name: fetch application
+      git: repo=https://gist.github.com/c454e2e839fcb20605a3.git dest=/opt/flask-demo
+      notify:
+      - restart flask app
+
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=restarted
+
+    - name: restart flask app
+      service: name=flask-demo state=restarted 

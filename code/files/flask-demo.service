@@ -1,0 +1,8 @@
+[Unit]
+Description=Flask Demo Service
+
+[Service]
+ExecStart=/usr/bin/python /opt/flask-demo/flask-demo.py
+
+[Install]
+WantedBy=multi-user.target
