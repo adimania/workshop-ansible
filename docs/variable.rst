@@ -5,6 +5,6 @@ There are times when we have a bunch of similar servers but they are not exactly
 
 .. code-block:: guess
 
-- hosts: webservers
-  vars:
-   http_port: 80
+  - hosts: webservers
+    vars:
+      http_port: 80
