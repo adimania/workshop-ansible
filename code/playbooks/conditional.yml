@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  vars: 
+    - state: false
+
+  tasks:
+    - shell: echo good state
+      when: state
