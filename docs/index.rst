@@ -12,7 +12,7 @@ Contents:
     :maxdepth: 2
 
     introduction
-    basic_of_ansible
+    basics_of_ansible
     inventory
     modules
     playbook
