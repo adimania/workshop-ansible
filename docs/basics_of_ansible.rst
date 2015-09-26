@@ -1,4 +1,4 @@
-Basic of Ansible
+Basics of Ansible
 ================
 
 What is Ansible?
@@ -15,7 +15,10 @@ Ansible is agentless. You do not need to have anything installed on the client's
 
 How to configure Ansible?
 -------------------------
+We will install the Ansible by pip. Package managers like dnf, yum and apt can be used but usually pip provides latest version. 
 
-How to run adhoc commands?
---------------------------
+.. code-block:: none
+  
+  # yum install python-pip
+  # pip install ansible 
 
