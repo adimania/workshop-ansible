@@ -24,6 +24,7 @@ Contents:
     cloud_infra
     custom_modules
     vault
+    further_reading
 
 
 Indices and tables
