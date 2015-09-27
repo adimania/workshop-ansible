@@ -1,13 +1,15 @@
 ---
 - hosts: localhost
   sudo: yes
+  vars:
+    - server_port: 8080
 
   tasks:
     - name: install nginx
       yum: pkg=nginx state=installed
 
     - name: serve nginx config
-      copy: src=../files/flask.conf dest=/etc/nginx/conf.d/
+      template: src=../files/flask.conf dest=/etc/nginx/conf.d/
       notify:
       - restart nginx
 
@@ -24,6 +26,9 @@
       git: repo=https://gist.github.com/c454e2e839fcb20605a3.git dest=/opt/flask-demo
       notify:
       - restart flask app
+      
+    - name: set selinux to permissive for demo
+      selinux: policy=targeted state=permissive
 
   handlers:
     - name: restart nginx
