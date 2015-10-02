@@ -19,7 +19,7 @@ Test Module
 
     ansible/hacking/test-module -m ./timetest.py
 
-    $ hacking/test-module -m ~/Work/github/workshop-ansible/code/timetest.py
+    $ hacking/test-module -m workshop-ansible/code/timetest.py
     * including generated source, if any, saving to:
       /home/prkumar/.ansible_module_generated
       * this may offset any line numbers in tracebacks/debuggers!
@@ -51,7 +51,7 @@ Let's set time to "Oct 7 10:10"
 
 ::
 
-    $ hacking/test-module -m ~/Work/github/workshop-ansible/code/timetest_update.py -a "time=\"May 7 10:10\""
+    $ hacking/test-module -m workshop-ansible/code/timetest_update.py -a "time=\"May 7 10:10\""
     * including generated source, if any, saving to:
       /home/prkumar/.ansible_module_generated
       * this may offset any line numbers in tracebacks/debuggers!
