@@ -13,7 +13,7 @@ Test Module
 
 ::
 
-    git clone git@github.com:ansible/ansible.git --recursive
+    git clone https://github.com/ansible/ansible.git --recursive
     source ansible/hacking/env-setup
     chmod +x ansible/hacking/test-module
 
