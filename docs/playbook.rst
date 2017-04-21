@@ -30,7 +30,7 @@ The example above will install Nginx on our systems. Let us also install pip, fl
      pip: name=flask
 
    - name: fetch application
-     git: repo=https://gist.github.com/c454e2e839fcb20605a3.git dest=flask-demo 
+     git: repo=https://gist.github.com/c454e2e839fcb20605a3.git dest=flask-demo
 
 Now we should also copy the config file for Nginx and systemd service file for our flask app. We will also define a couple of handlers. Handlers are executed if there is any change in state of the task which is supposed to notifies them.
 
@@ -66,7 +66,7 @@ When we will be done with the workshop, our final playbook will look something l
          git: repo=https://gist.github.com/c454e2e839fcb20605a3.git dest=/opt/flask-demo
          notify:
            - restart flask app
-      
+
        - name: set selinux to permissive for demo
          selinux: policy=targeted state=permissive
 
@@ -75,5 +75,5 @@ When we will be done with the workshop, our final playbook will look something l
          service: name=nginx state=restarted
 
        - name: restart flask app
-         service: name=flask-demo state=restarted 
+         service: name=flask-demo state=restarted
 

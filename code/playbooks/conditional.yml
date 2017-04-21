@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  vars: 
+  vars:
     - state: false
 
   tasks:

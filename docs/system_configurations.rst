@@ -13,7 +13,7 @@ Examples:
 
 .. code-block:: guess
 
-   - name: install git 
+   - name: install git
      yum: pkg=git state=installed
 
    - name: start nginx

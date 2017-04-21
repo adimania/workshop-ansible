@@ -26,7 +26,7 @@
       git: repo=https://gist.github.com/c454e2e839fcb20605a3.git dest=/opt/flask-demo
       notify:
       - restart flask app
-      
+
     - name: set selinux to permissive for demo
       selinux: policy=targeted state=permissive
 
@@ -35,4 +35,4 @@
       service: name=nginx state=restarted
 
     - name: restart flask app
-      service: name=flask-demo state=restarted 
+      service: name=flask-demo state=restarted
