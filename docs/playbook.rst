@@ -1,7 +1,7 @@
 Playbooks
 =========
 
-Playbooks are a description of policies that you want to apply to your systems. It consists of a listing of modules that and the arguments that will run on your system so that it can read the required state. They are written in YAML. It begins with "---", followed by the group name of the hosts where the playbook would be run.
+Playbooks are a description of policies that you want to apply to your systems. They consist of a listing of modules and the arguments that will run on your system so that ansible gets to know the current state. They are written in YAML. They begin with "---", followed by the group name of the hosts where the playbook would be run.
 
 Example:
 
