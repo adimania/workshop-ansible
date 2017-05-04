@@ -12,3 +12,5 @@ Name of group is enclosed in square brackets []. Server names can be their DNS n
     [application]
     server1
     server2
+
+There are times when you would want to pull the inventory from a cloud provider, or from LDAP, or you would want the inventory list to be generated using some logic, rather than from a simple text-based inventory list. For such purposes, we can use Dynamic Inventory, but that's a topic for another day.
