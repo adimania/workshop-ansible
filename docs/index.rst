@@ -21,6 +21,7 @@ Contents:
     adhoc
     system_configurations
     application_orchestration
+    roles
     cloud_infra
     custom_modules
     vault
