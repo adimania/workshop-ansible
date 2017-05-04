@@ -77,3 +77,24 @@ When we will be done with the workshop, our final playbook will look something l
        - name: restart flask app
          service: name=flask-demo state=restarted
 
+We can also skip a particular task or make a task execute only if a condition is met using the When statement.
+
+.. code-block:: guess
+
+    tasks:
+      - shell: yum provides */elinks
+        when: ansible_os_family == "RedHat"
+
+Suppose we have a list of items we have to iterate on for a particular task, we can use loops like the following
+
+.. code-block:: guess
+
+    - name: add ssh users
+      user:
+        name: "{{ item }}"
+        state: present
+        generate_ssh_key: yes
+      with_items:
+         - sshuser1
+         - sshuser2
+         - sshuser3
