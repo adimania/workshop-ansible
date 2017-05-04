@@ -2,7 +2,7 @@ Ansible Workshop @ PyCon 2015
 =============================
 
 == Description of the workshop ==
-Ansible is an IT automation tool that can be used to configure, deploy and orchestrate many different Infrastructure based tasks. Ansible can be used for system configuration, software deployment, application or infrastructure orchestration, more importantly it is agent less and no master/slave configuration required for it. It uses yml to write playbook which is readable and easy to manageable, did I not mention it's comes with batteries included.
+Ansible is an IT automation tool that can be used to configure, deploy and orchestrate many different Infrastructure based tasks. Ansible can be used for system configuration, software deployment, application or infrastructure orchestration, more importantly it is agent less and no master/slave configuration required for it. It uses YAML to write playbooks which is readable and easy to manageable, did I not mention it's comes with batteries included.
 
 This workshop aims to hands-on upon the following topics:
 
