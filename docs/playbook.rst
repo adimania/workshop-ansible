@@ -11,7 +11,7 @@ Example:
    hosts: localhost
 
    - name: install nginx
-     yum: pkg=nginx state=installed
+     yum: name=nginx state=installed
 
 The example above will install Nginx on our systems. Let us also install pip, flask and our flask app.
 
@@ -21,10 +21,10 @@ The example above will install Nginx on our systems. Let us also install pip, fl
    hosts: localhost
 
    - name: install nginx
-     yum: pkg=nginx state=installed
+     yum: name=nginx state=installed
 
    - name: install pip
-    yum: pkg=python-pip state=installed
+     yum: name=python-pip state=installed
 
    - name: install flask
      pip: name=flask
@@ -40,13 +40,15 @@ When we will be done with the workshop, our final playbook will look something l
 
    ---
    - hosts: localhost
-     sudo: yes
+     remote_user: fedora
+     become: yes
+     become_method: sudo
      vars:
        - server_port: 8080
 
      tasks:
        - name: install nginx
-         yum: pkg=nginx state=installed
+         yum: name=nginx state=installed
 
        - name: serve nginx config
          template: src=../files/flask.conf dest=/etc/nginx/conf.d/

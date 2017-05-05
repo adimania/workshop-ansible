@@ -14,7 +14,7 @@ Examples:
 .. code-block:: guess
 
    - name: install git
-     yum: pkg=git state=installed
+     yum: name=git state=installed
 
    - name: start nginx
      service: name=nginx state=started

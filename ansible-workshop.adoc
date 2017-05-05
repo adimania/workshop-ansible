@@ -81,7 +81,7 @@ Topics covered:
     tasks:
         - name: ensure apache is at the latest version
           yum:
-            pkg: httpd
+            name: httpd
             state: latest
 ----
 

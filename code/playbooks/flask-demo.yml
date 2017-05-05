@@ -1,12 +1,14 @@
 ---
 - hosts: localhost
-  sudo: yes
+  remote_user: fedora
+  become: yes
+  become_method: sudo
   vars:
     - server_port: 8080
 
   tasks:
     - name: install nginx
-      yum: pkg=nginx state=installed
+      yum: name=nginx state=installed
 
     - name: serve nginx config
       template: src=../files/flask.conf dest=/etc/nginx/conf.d/
