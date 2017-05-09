@@ -8,3 +8,17 @@ There are times when we have a bunch of similar servers but they are not exactly
   - hosts: webservers
     vars:
       http_port: 80
+
+We can save the result of a command to a variable and use that somewhere else in the playbook, e.g. in conditionals.
+
+.. code-block:: guess
+
+  tasks:
+
+      - name: list contents of directory
+        command: ls mydir
+        register: contents
+
+      - name: check contents for emptiness
+        debug: msg="Directory is empty"
+        when: contents.stdout == ""
