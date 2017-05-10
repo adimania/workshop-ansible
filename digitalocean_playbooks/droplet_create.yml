@@ -1,0 +1,41 @@
+---
+- hosts: digitalocean
+
+  vars:
+    droplets:
+    - ansible-droplet-1
+    - ansible-droplet-2
+
+
+  tasks:
+  - name: ensure ssh key exists
+    user:
+      name: "{{ ansible_user_id }}"
+      generate_ssh_key: yes
+      ssh_key_file: .ssh/id_rsa
+
+  - name: ensure key exists at DigitalOcean
+    digital_ocean:
+      state: present
+      command: ssh
+      name: thinkpad_key
+      ssh_pub_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    register: ssh_key
+
+  - name: create droplet if not present
+    digital_ocean:
+      state: present
+      command: droplet
+      name: "{{ item }}"
+      size_id: 512mb
+      region_id: blr1
+      image_id: fedora-25-x64
+      ssh_key_ids: "{{ ssh_key.ssh_key.id }}"
+      unique_name: yes
+    with_items: "{{ droplets }}"
+    register: droplet_output
+
+  - name: print IP addresses
+    debug:
+      msg: "Droplet has the IP {{ item.droplet.ip_address }}"
+    with_items: "{{ droplet_output.results }}"

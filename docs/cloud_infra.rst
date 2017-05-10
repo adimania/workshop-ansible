@@ -38,3 +38,11 @@ tasks/main.yml
               --security-group default --key-name {{ KEY_NAME }} --min-count {{ INSTCNT }} {{ INSTNAME }}
 
 you can use openstack-API instead of CLI to perform same task.
+
+
+For DigitalOcean Droplet provisioning, refer to the respective directory in the root of this repository for playbooks.
+
+Before running the playbooks, make sure you have done the following -
+
+- `pip install dopy`
+- Login to your DO account, and under API, generate your API token, and then export it to the environment as `DO_API_TOKEN=<token>`

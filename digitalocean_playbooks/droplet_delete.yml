@@ -1,0 +1,16 @@
+---
+- hosts: digitalocean
+
+  vars:
+    droplets:
+    - ansible-droplet-1
+    - ansible-droplet-2
+
+  tasks:
+  - name: delete droplets
+    digital_ocean:
+      state: absent
+      command: droplet
+      name: "{{ item }}"
+      unique_name: yes
+    with_items: "{{ droplets }}"
