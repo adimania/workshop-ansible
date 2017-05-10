@@ -100,3 +100,31 @@ Suppose we have a list of items we have to iterate on for a particular task, we 
          - sshuser1
          - sshuser2
          - sshuser3
+
+We can also run certain tasks from a playbook by tagging them -
+
+.. code-block:: guess
+
+    ---
+    - hosts: localhost
+      become: yes
+    
+      tasks:
+      - name: install nginx
+        yum: name=nginx state=present
+        tags:
+          - system
+    
+      - name: install pip
+        yum: name=python-pip state=present
+        tags:
+          - system
+      
+      - name: install flask
+        pip: name=flask
+        tags:
+          - dev
+
+We can run the system tagged tasks by running `ansible-playbook playbook.yml --ask-become-pass --tags system`
+
+We can skip the system tagges tasks by running `ansible-playbook playbook.yml --ask-become-pass --skip-tags system`
