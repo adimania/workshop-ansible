@@ -1,0 +1,27 @@
+---
+# These tasks install http and the php modules.
+
+- name: Install http and php etc
+  dnf: name={{ item }} state=present
+  with_items:
+   - httpd
+   - php
+   - php-mysqlnd
+   - git
+   - libsemanage-python
+   - libselinux-python
+
+- name: insert iptables rule for httpd
+  firewalld: service=http permanent=true state=enabled
+  notify: restart firewalld
+
+- name: http service state
+  service: name=httpd state=started enabled=yes
+
+- name: Configure SELinux to allow httpd to connect to network
+  seboolean: name=httpd_can_network_connect state=true persistent=yes
+  when: sestatus.rc == 0
+
+- name: Configure SELinux to allow httpd to connect to remote database
+  seboolean: name=httpd_can_network_connect_db state=true persistent=yes
+  when: sestatus.rc == 0
